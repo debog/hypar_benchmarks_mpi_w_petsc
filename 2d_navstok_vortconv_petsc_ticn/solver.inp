@@ -2,7 +2,7 @@ begin
   ndims               2
   nvars               4
   size                64 64
-  iproc               4 4
+  iproc               2 2
   ghost               3
   n_iter              4
   restart_iter        0
