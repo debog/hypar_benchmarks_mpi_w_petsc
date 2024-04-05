@@ -1,0 +1,48 @@
+# See PETSc documentation for more details (https://petsc.org/release/overview/).
+# Note that if the following are specified in this file, the corresponding inputs in solver.inp are *ignored*.
+# + "-ts_dt" (time step size): ignores "dt" in solver.inp
+# + "-ts_max_steps" (maximum number of time iterations): ignores "n_iter" in solver.inp
+# + "-ts_max_time" (final simulation time): ignores "n_iter" X "dt" in solver.inp
+# If these are not specified here, then the values in solver.inp are used.
+
+# Use PETSc time-integration
+-use-petscts
+
+# Time integration scheme type - CN
+-ts_type cn
+
+# no time-step adaptivity
+-ts_adapt_type none
+
+# Nonlinear solver (SNES) type
+-snes_type newtonls
+# Set relative tolerance
+-snes_rtol 1e-4
+# Set absolute tolerance
+-snes_atol 1e-10
+# Set step size tolerance
+-snes_stol 1e-16
+# Print the residual
+-snes_monitor
+
+# Linear solver (KSP) type
+-ksp_type gmres
+# Set relative tolerance
+-ksp_rtol 1e-2
+# Set absolute tolerance
+-ksp_atol 1e-12
+# Print the residual
+-ksp_monitor
+
+# use a preconditioner for solving the system
+-with_pc
+-pc_matrix_type colored_fd
+#-pc_matrix_colored_fd_stencil_width 3
+-pc_matrix_colored_fd_stencil_width 1
+
+# preconditioner type
+-pc_type sor
+-pc_sor_its 5
+#-pc_type hypre
+#-pc_hypre_type euclid
+#-pc_hypre_euclid_level 1
