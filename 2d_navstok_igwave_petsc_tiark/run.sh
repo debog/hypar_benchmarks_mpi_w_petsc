@@ -11,7 +11,7 @@ aux_dir="aux"
 
 # number of MPI ranks for this case
 # MUST correspond to iproc in solver.inp
-NPROC=24
+NPROC=4
 
 # file for screen output
 OUTFILE="out.log"
