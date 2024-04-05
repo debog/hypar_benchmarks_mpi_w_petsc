@@ -1,10 +1,10 @@
 begin
   ndims               2
   nvars               4
-  size                1200 50
+  size                600 25
   iproc               4 1
   ghost               3
-  n_iter              20
+  n_iter              3
   restart_iter        0
   time_scheme         rk
   time_scheme_type    ssprk3
